@@ -1,0 +1,6 @@
+/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/sso/auth/obj/Debug/net7.0/auth.csproj.AssemblyReference.cache
+/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/sso/auth/obj/Debug/net7.0/auth.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/sso/auth/obj/Debug/net7.0/auth.AssemblyInfoInputs.cache
+/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/sso/auth/obj/Debug/net7.0/auth.AssemblyInfo.cs
+/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/sso/auth/obj/Debug/net7.0/auth.csproj.CoreCompileInputs.cache
+/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/sso/auth/obj/Debug/net7.0/auth.MvcApplicationPartsAssemblyInfo.cache

@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  sample_a:
+    image: ${DOCKER_REGISTRY-}samplea
+    build:
+      context: .
+      dockerfile: services/sample_a/Dockerfile
+
+  sample_b:
+    image: ${DOCKER_REGISTRY-}sampleb
+    build:
+      context: .
+      dockerfile: services/sample_b/Dockerfile
+
+
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ../gateway/apigateway/Dockerfile
+

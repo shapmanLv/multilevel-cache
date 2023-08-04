@@ -1,0 +1,7 @@
+﻿<Properties NuGet.AddPackagesDialog.IncludePrerelease="True" StartupConfiguration="{90DBD09E-52AC-4956-96F5-57DD1194F503}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.services.sample__b PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.sso.auth FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.services.sample__a PreferredExecutionTarget="/Applications/iTerm.app" />
+</Properties>
