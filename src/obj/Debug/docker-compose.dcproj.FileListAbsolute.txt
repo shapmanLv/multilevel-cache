@@ -13,16 +13,3 @@
 /Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/obj/Debug/docker-compose.dcproj.AssemblyReference.cache
 /Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/obj/Debug/docker-compose.dcproj.CoreCompileInputs.cache
 /Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/obj/Debug/docker-compose.dcproj.CopyComplete
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/apigateway.deps.json
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/apigateway.runtimeconfig.json
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/apigateway
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/apigateway.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/apigateway.pdb
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/Ocelot.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/Newtonsoft.Json.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/Microsoft.Extensions.DiagnosticAdapter.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/FluentValidation.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/Microsoft.AspNetCore.MiddlewareAnalysis.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/Microsoft.AspNetCore.JsonPatch.dll
-/Users/shapman/Desktop/mine/project/multilevelCacheOnK8s/src/bin/Debug/Newtonsoft.Json.Bson.dll
