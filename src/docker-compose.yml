@@ -13,10 +13,9 @@ services:
       context: .
       dockerfile: services/sample_b/Dockerfile
 
-
-  apigateway:
-    image: ${DOCKER_REGISTRY-}apigateway
+  auth:
+    image: ${DOCKER_REGISTRY-}auth
     build:
       context: .
-      dockerfile: ../gateway/apigateway/Dockerfile
+      dockerfile: sso/auth/Dockerfile
 
