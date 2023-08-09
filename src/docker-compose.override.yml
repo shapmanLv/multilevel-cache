@@ -1,6 +1,11 @@
 version: '3.4'
 
 services:
+  apigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
   sample_a:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

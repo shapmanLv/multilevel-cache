@@ -1,6 +1,12 @@
 version: '3.4'
 
 services:
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: gateway/apigateway/Dockerfile
+
   sample_a:
     image: ${DOCKER_REGISTRY-}samplea
     build:
