@@ -1,11 +1,11 @@
-﻿using System.Security.Claims;
+using common;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Test;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services // duende identity server
     .AddIdentityServer(options =>
     {
@@ -24,8 +24,10 @@ builder.Services // duende identity server
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 app.MapGet("/", () => "hello world, I'm sso");
+app.MapGet("/ip", async () => await IpAddress.GetIpAsync());
+app.MapGet("/health", () => "I am fit");
+
 app.Run();
 
 
@@ -37,16 +39,16 @@ record IdentityConfig
         new IdentityResources.Email(),
     };
     public static IEnumerable<ApiScope> ApiScopes => new List<ApiScope> {
-        new ApiScope("mutillevelCacheOnK8s"),
+        new ApiScope("multillevelCacheOnK8s"),
     };
     public static IEnumerable<ApiResource> ApiResources => new List<ApiResource> {
         new ApiResource("a", "microservice a"){
             ApiSecrets = { new Secret("secret".Sha256()) },
-            Scopes = { "mutillevelCacheOnK8s" }
+            Scopes = { "multillevelCacheOnK8s" }
         },
         new ApiResource("b", "microservice b") {
             ApiSecrets = { new Secret("secret".Sha256()) },
-            Scopes = { "mutillevelCacheOnK8s" }
+            Scopes = { "multillevelCacheOnK8s" }
         },
     };
     public static IEnumerable<Client> GetClients() => new List<Client> {
@@ -63,7 +65,7 @@ record IdentityConfig
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
                 IdentityServerConstants.StandardScopes.OfflineAccess,
-                "mutillevelCacheOnK8s"
+                "multillevelCacheOnK8s"
             },
             AccessTokenLifetime = 60 * 60 * 24 * 30, // 30 day
             RefreshTokenUsage = TokenUsage.ReUse,
