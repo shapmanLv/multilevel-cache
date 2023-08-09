@@ -4,21 +4,42 @@ services:
   apigateway:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - multilevelcacheonk8s
     ports:
-      - "80"
+      - "5009:80"
   sample_a:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - multilevelcacheonk8s
     ports:
-      - "80"
+      - "5218:80"
   sample_b:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - multilevelcacheonk8s
     ports:
-      - "80"
+      - "5138:80"
   auth:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - multilevelcacheonk8s
     ports:
-      - "80"
+      - "5161:80"
+  consul:
+    image: hashicorp/consul
+    container_name: consul
+    networks:
+      - multilevelcacheonk8s
+    ports:
+      - "8500:8500"
+      - "8600:8600/tcp"
+      - "8600:8600/udp"
+    command: "agent -client=0.0.0.0 -server -ui -bootstrap-expect=1 -data-dir=/consul/data -node=consul"
 
+networks:
+  multilevelcacheonk8s:
+    driver: bridge
