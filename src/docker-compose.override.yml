@@ -8,27 +8,25 @@ services:
       - multilevelcacheonk8s
     ports:
       - "5009:80"
+
   sample_a:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - multilevelcacheonk8s
-    ports:
-      - "5218:80"
+
   sample_b:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - multilevelcacheonk8s
-    ports:
-      - "5138:80"
+
   auth:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - multilevelcacheonk8s
-    ports:
-      - "5161:80"
+
   consul:
     image: hashicorp/consul
     container_name: consul
