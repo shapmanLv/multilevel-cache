@@ -11,13 +11,13 @@ services:
     image: ${DOCKER_REGISTRY-}samplea
     build:
       context: .
-      dockerfile: services/sample_a/Dockerfile
+      dockerfile: services/a/sample_a/Dockerfile
 
   sample_b:
     image: ${DOCKER_REGISTRY-}sampleb
     build:
       context: .
-      dockerfile: services/sample_b/Dockerfile
+      dockerfile: services/b/sample_b/Dockerfile
 
   auth:
     image: ${DOCKER_REGISTRY-}auth

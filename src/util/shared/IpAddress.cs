@@ -1,6 +1,6 @@
-﻿using System.Net;
+using System.Net;
 
-namespace common;
+namespace shared;
 public static class IpAddress
 {
     public static async Task<string?> GetIpAsync() 

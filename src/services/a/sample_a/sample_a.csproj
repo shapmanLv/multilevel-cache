@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerComposeProjectPath>../../docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>c97bcf02-2c9f-42d2-8646-1c8d79f9b782</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
@@ -12,10 +13,11 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
 
   <ItemGroup>
+    <PackageReference Include="Consul" Version="1.6.10.9" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\util\common\common.csproj" />
+    <ProjectReference Include="..\..\..\util\shared\shared.csproj" />
   </ItemGroup>
 </Project>

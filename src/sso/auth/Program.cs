@@ -1,12 +1,10 @@
-using common;
-using Consul;
+using shared;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Test;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
-var ip = await IpAddress.GetIpAsync();
 
 builder.Services // duende identity server
     .AddIdentityServer(options =>
@@ -27,27 +25,8 @@ builder.Services // duende identity server
 var app = builder.Build();
 
 app.MapGet("/", () => "hello world, I'm sso");
-app.MapGet("/ip", () => ip);
-app.MapGet("/health", () => "I am fit");
-
-var consulClient = new ConsulClient(config => config.Address = new Uri("http://consul:8500"));
-var serviceId = Guid.NewGuid().ToString("N");
-await consulClient.Agent.ServiceRegister(new AgentServiceRegistration
-{
-    ID = serviceId,
-    Address = ip,
-    Name = "auth",
-    Port = 80,
-    Check = new AgentServiceCheck
-    {
-        Interval = TimeSpan.FromSeconds(10),
-        Timeout = TimeSpan.FromSeconds(5),
-        HTTP = $"http://{ip}/health",
-        DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(3),
-    }
-});
-app.Lifetime.ApplicationStopping.Register(() =>
-  consulClient.Agent.ServiceDeregister(serviceId));
+app.MapGet("/ip", async () => await IpAddress.GetIpAsync());
+await app.UseConsul("auth");
 
 app.Run();
 
