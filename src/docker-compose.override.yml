@@ -1,6 +1,15 @@
 version: '3.4'
 
 services:
+  consul-client:
+    image: hashicorp/consul
+    container_name: consul
+    networks:
+      - multilevelcacheonk8s
+    ports:
+      - "8500:8500"
+    command: "agent -client=0.0.0.0 -ui -retry-join=consul-server-1 -node=consul-client"
+
   apigateway:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -9,35 +18,31 @@ services:
     ports:
       - "5009:80"
 
-  sample_a:
+  sample-a:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - multilevelcacheonk8s
+    depends_on:
+      - consul-client
 
-  sample_b:
+  sample-b:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - multilevelcacheonk8s
+    depends_on:
+      - consul-client
 
   auth:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - multilevelcacheonk8s
-
-  consul:
-    image: hashicorp/consul
-    container_name: consul
-    networks:
-      - multilevelcacheonk8s
-    ports:
-      - "8500:8500"
-      - "8600:8600/tcp"
-      - "8600:8600/udp"
-    command: "agent -client=0.0.0.0 -server -ui -bootstrap-expect=1 -data-dir=/consul/data -node=consul"
+    depends_on:
+      - consul-client
 
 networks:
   multilevelcacheonk8s:
-    driver: bridge
+    external:
+      name: multilevelcacheonk8s

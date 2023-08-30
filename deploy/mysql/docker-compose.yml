@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      TZ: Asia/Shanghai #时区设置
+      MYSQL_ROOT_PASSWORD: "123456"
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - "3306:3306"

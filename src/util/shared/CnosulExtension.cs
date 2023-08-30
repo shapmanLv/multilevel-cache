@@ -6,7 +6,7 @@ public static class CnosulExtension
 {
     public static async Task UseConsul(this WebApplication app, string serviceName)
     {
-        var consulClient = new ConsulClient(config => config.Address = new Uri("http://consul:8500"));
+        var consulClient = new ConsulClient(config => config.Address = new Uri("http://consul-client:8500"));
         var ip = await IpAddress.GetIpAsync();
         var serviceId = Guid.NewGuid().ToString("N");
         app.MapGet("/health", () => "I am fit");

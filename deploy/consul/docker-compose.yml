@@ -1,0 +1,29 @@
+version: "3.4"
+
+services:
+  consul-server-1:
+    image: hashicorp/consul
+    command: agent -server -client=0.0.0.0 -bootstrap-expect=3 -node=consul-server-1
+    networks:
+      - multilevelcacheonk8s
+
+  consul-server-2:
+    image: hashicorp/consul
+    command: agent -server -client=0.0.0.0 -retry-join=consul-server-1 -node=consul-server-2
+    networks:
+      - multilevelcacheonk8s
+    depends_on:
+      - consul-server-1
+
+  consul-server-3:
+    image: hashicorp/consul
+    command: agent -server -client=0.0.0.0 -retry-join=consul-server-1 -node=consul-server-3
+    networks:
+      - multilevelcacheonk8s
+    depends_on:
+      - consul-server-1
+
+networks:
+  multilevelcacheonk8s:
+    external:
+      name: multilevelcacheonk8s

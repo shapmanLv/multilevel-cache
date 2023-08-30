@@ -7,13 +7,13 @@ services:
       context: .
       dockerfile: gateway/apigateway/Dockerfile
 
-  sample_a:
+  sample-a:
     image: ${DOCKER_REGISTRY-}samplea
     build:
       context: .
       dockerfile: services/a/sample_a/Dockerfile
 
-  sample_b:
+  sample-b:
     image: ${DOCKER_REGISTRY-}sampleb
     build:
       context: .
